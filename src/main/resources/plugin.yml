@@ -1,0 +1,10 @@
+name: Deliverypl
+version: 666
+main: me.jujjka.deliverypl.deliverypl.Deliverypl
+api-version: 1.19
+authors: [ jujjka ]
+description: resource delivery plugin between players
+
+commands:
+  del:
+    description: base cmd this plugin
