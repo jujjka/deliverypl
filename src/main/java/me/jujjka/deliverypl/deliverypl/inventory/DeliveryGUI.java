@@ -18,7 +18,7 @@ public class DeliveryGUI implements InventoryHolder {
 
 
     public DeliveryGUI(Player player,Player target)  {
-        inv = Bukkit.createInventory(player,27, target.getDisplayName());
+        inv = Bukkit.createInventory(player,27, target.getDisplayName() + LangMgr.getLang().getString("GUI.deliveryguititle"));
         init();
         player.openInventory(getInventory());
     }
@@ -37,7 +37,7 @@ public class DeliveryGUI implements InventoryHolder {
         //
         inv.setItem(18,item_send);
         inv.setItem(26,item_info);
-        for (int i  = 9; i < 17; i++){
+        for (int i  = 9; i < 18; i++){
             inv.setItem(i,item_partition);
         }
         //
@@ -47,6 +47,7 @@ public class DeliveryGUI implements InventoryHolder {
         ItemStack item = new ItemStack(mat);
         ItemMeta meta = item.getItemMeta();
         meta.setDisplayName(name);
+        meta.setCustomModelData(22522224);
         meta.addItemFlags(ItemFlag.HIDE_ATTRIBUTES);
         meta.setLore(lore);
         item.setItemMeta(meta);

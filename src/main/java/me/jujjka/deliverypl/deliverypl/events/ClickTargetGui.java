@@ -13,7 +13,6 @@ public class ClickTargetGui implements Listener {
     @EventHandler
     public void onClick(InventoryClickEvent e) {
         if (!(e.getClickedInventory() instanceof GetDeliveryGUI)) {return;}
-        e.setCancelled(true);
         if (e.getCurrentItem() == null) {return;}
         Player player = (Player) e.getWhoClicked();
         ItemStack item = e.getCurrentItem();

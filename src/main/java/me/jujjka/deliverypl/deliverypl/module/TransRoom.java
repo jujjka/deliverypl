@@ -10,6 +10,7 @@ import java.util.List;
 public class TransRoom {
 
     static List<TransRoom> transRoomList = new ArrayList<>();
+    static List<Player> playersRoomList = new ArrayList<>();
     private Player sender;
     private Player target;
     private DeliveryGUI deliveryGUI;
@@ -20,6 +21,9 @@ public class TransRoom {
         this.target = target;
         deliveryGUI = new DeliveryGUI(sender,target);
         getDeliveryGUI = new GetDeliveryGUI(target);
+        transRoomList.add(this);
+        playersRoomList.add(sender);
+        playersRoomList.add(target);
     }
     public static TransRoom getRoom(Player one, Player two){
         for(TransRoom transRoom : transRoomList){
@@ -59,5 +63,9 @@ public class TransRoom {
 
     public void setGetDeliveryGUI(GetDeliveryGUI getDeliveryGUI) {
         this.getDeliveryGUI = getDeliveryGUI;
+    }
+
+    public static List<Player> getPlayersRoomList() {
+        return playersRoomList;
     }
 }

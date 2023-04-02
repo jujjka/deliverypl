@@ -18,21 +18,18 @@ public class GetDeliveryGUI  implements InventoryHolder {
     private final Inventory inv;
     List<ItemStack> items = new ArrayList<>();
     public GetDeliveryGUI(Player player)  {
-        inv = Bukkit.createInventory(player,27, LangMgr.getLang().getString("GUI.sendGuiTittle"));
+        inv = Bukkit.createInventory(player,27, "получние спермы");
         init();
     }
 
     private void init()  {
         ItemStack item_send;
         ItemStack item_info;
-        ItemStack item_partition;
         List<String > lore_send = new ArrayList<>();
         List<String > lore_info = new ArrayList<>();
-        List<String > lore_partition = new ArrayList<>();
 
-        item_send = createItem(LangMgr.getLang().getString("GUI.getitem"), Material.DIAMOND_SWORD,lore_send);
-        item_info = createItem(LangMgr.getLang().getString("GUI.infoitem"),Material.NETHER_STAR,lore_info);
-        item_partition = createItem(LangMgr.getLang().getString("GUI.partitionitem"),Material.BELL,lore_partition);
+        item_send = createItem(LangMgr.getLang().getString("GUI.getitem"), Material.IRON_INGOT,lore_send);
+        item_info = createItem(LangMgr.getLang().getString("GUI.infoitem"),Material.WARPED_PRESSURE_PLATE,lore_info);
         //
         inv.setItem(18,item_send);
         inv.setItem(26,item_info);

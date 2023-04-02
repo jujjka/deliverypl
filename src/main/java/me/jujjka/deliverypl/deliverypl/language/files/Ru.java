@@ -37,6 +37,7 @@ public class Ru {
     }
     public static void setupMessages(){
         setup();
+        get().set("GUI.deliveryguititle","отправка спермы");
         get().options().copyDefaults(true);
         save();
     }
