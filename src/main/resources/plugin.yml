@@ -6,5 +6,5 @@ authors: [ jujjka ]
 description: resource delivery plugin between players
 
 commands:
-  del:
+  trans:
     description: base cmd this plugin

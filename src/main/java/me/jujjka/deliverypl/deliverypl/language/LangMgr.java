@@ -1,6 +1,9 @@
 package me.jujjka.deliverypl.deliverypl.language;
 
 import me.jujjka.deliverypl.deliverypl.Deliverypl;
+import me.jujjka.deliverypl.deliverypl.language.files.En;
+import me.jujjka.deliverypl.deliverypl.language.files.Fr;
+import me.jujjka.deliverypl.deliverypl.language.files.Ge;
 import me.jujjka.deliverypl.deliverypl.language.files.Ru;
 import org.bukkit.Bukkit;
 import org.bukkit.configuration.file.FileConfiguration;
@@ -17,5 +20,8 @@ public class LangMgr {
     }
     public static void setupLanguages(){
         Ru.setupMessages();
+        En.setupMessages();
+        Fr.setupMessages();
+        Ge.setupMessages();
     }
 }

@@ -37,7 +37,14 @@ public class Ru {
     }
     public static void setupMessages(){
         setup();
-        get().set("GUI.deliveryguititle","отправка спермы");
+        get().set("ERROR.maximum","§4Вы достигли предела!");
+        get().set("ERROR.notPlayer","§4Игрока [%s] не существует");
+        get().set("ERROR.notArguments","§4Недостаочно аргументов");
+        get().set("GUI.senditem","§bОтправьте ресурсы");
+        get().set("GUI.setinfoitem","§bТут вы можете отправить свои ресурсы");
+
+        get().set("GUI.item_send_lore","§6Отправьте на слиток");
+        get().set("GUI.partition","§bОтправьте!");
         get().options().copyDefaults(true);
         save();
     }

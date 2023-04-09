@@ -2,7 +2,10 @@ package me.jujjka.deliverypl.deliverypl.module;
 
 import me.jujjka.deliverypl.deliverypl.inventory.DeliveryGUI;
 import me.jujjka.deliverypl.deliverypl.inventory.GetDeliveryGUI;
+import me.jujjka.deliverypl.deliverypl.language.LangMgr;
+import org.bukkit.Material;
 import org.bukkit.entity.Player;
+import org.bukkit.inventory.ItemStack;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,14 +23,32 @@ public class TransRoom {
         this.sender = sender;
         this.target = target;
         deliveryGUI = new DeliveryGUI(sender,target);
-        getDeliveryGUI = new GetDeliveryGUI(target);
+        getDeliveryGUI = new GetDeliveryGUI(this);
         transRoomList.add(this);
         playersRoomList.add(sender);
         playersRoomList.add(target);
     }
+    public void send(){
+        if (getGetDeliveryGUI().getItems().size() < 9) {
+            for (int i = 0; i < 9; i++){
+                if(deliveryGUI.getInventory().getItem(i) != null){
+                    getDeliveryGUI.getItems().add(deliveryGUI.getInventory().getItem(i));
+                    deliveryGUI.getInventory().setItem(i,null);
+                }
+            }
+        } else {
+            sender.sendMessage(LangMgr.getLang().getString("ERROR.maximum"));
+        }
+    }
+    public void get(){
+            for (ItemStack stack : getDeliveryGUI.getItems()){
+                target.getInventory().addItem(stack);
+                getDeliveryGUI.getItems().clear();
+            }
+    }
     public static TransRoom getRoom(Player one, Player two){
         for(TransRoom transRoom : transRoomList){
-            if(transRoom.getSender().equals(one )&& transRoom.getTarget().equals(two)){
+            if(transRoom.getSender().equals(one)&& transRoom.getTarget().equals(two)){
                 return transRoom;
             }
         }

@@ -11,29 +11,27 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class DeliveryGUI implements InventoryHolder {
     private final Inventory inv;
-
-
     public DeliveryGUI(Player player,Player target)  {
-        inv = Bukkit.createInventory(player,27, target.getDisplayName() + LangMgr.getLang().getString("GUI.deliveryguititle"));
+        inv = Bukkit.createInventory(this,27, "§bsend to " + target.getDisplayName());
         init();
-        player.openInventory(getInventory());
+        player.openInventory(inv);
     }
 
     private void init()  {
         ItemStack item_send;
         ItemStack item_info;
         ItemStack item_partition;
-        List<String > lore_send = new ArrayList<>();
-        List<String > lore_info = new ArrayList<>();
-        List<String > lore_partition = new ArrayList<>();
+        List<String > lore_send = Collections.singletonList(LangMgr.getLang().getString("GUI.item_send_lore"));
+        List<String > lore_info = Collections.singletonList("");
 
         item_send = createItem(LangMgr.getLang().getString("GUI.senditem"), Material.IRON_INGOT,lore_send);
-        item_info = createItem(LangMgr.getLang().getString("GUI.infoitem"),Material.WARPED_PRESSURE_PLATE,lore_info);
-        item_partition = createItem(LangMgr.getLang().getString("GUI.partitionitem"),Material.STONE_SLAB,lore_partition);
+        item_info = createItem(LangMgr.getLang().getString("GUI.setinfoitem"),Material.WARPED_PRESSURE_PLATE,lore_info);
+        item_partition = createItem(LangMgr.getLang().getString("GUI.partition"),Material.STONE_SLAB,null);
         //
         inv.setItem(18,item_send);
         inv.setItem(26,item_info);
@@ -47,7 +45,6 @@ public class DeliveryGUI implements InventoryHolder {
         ItemStack item = new ItemStack(mat);
         ItemMeta meta = item.getItemMeta();
         meta.setDisplayName(name);
-        meta.setCustomModelData(22522224);
         meta.addItemFlags(ItemFlag.HIDE_ATTRIBUTES);
         meta.setLore(lore);
         item.setItemMeta(meta);

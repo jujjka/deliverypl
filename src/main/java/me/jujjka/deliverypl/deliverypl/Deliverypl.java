@@ -4,6 +4,7 @@ import me.jujjka.deliverypl.deliverypl.commands.CommandsMgr;
 import me.jujjka.deliverypl.deliverypl.commands.DeliveryCMD;
 import me.jujjka.deliverypl.deliverypl.events.EventsMgr;
 import me.jujjka.deliverypl.deliverypl.language.LangMgr;
+import org.bstats.bukkit.Metrics;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -27,6 +28,9 @@ public final class Deliverypl extends JavaPlugin {
         this.getConfig().options().copyDefaults();
         this.saveDefaultConfig();
         LangMgr.setupLanguages();
+
+        int pluginId = 18170; // <-- Replace with the id of your plugin!
+        Metrics metrics = new Metrics(this, pluginId);
     }
 
     public static Deliverypl getInstance() {
