@@ -6,6 +6,7 @@ With the /trans send PLAYER_NAME command, the first player opens the menu, puts 
 Commands: 
   - /trans send Player_name;
   - /trans get sender_name;
+
 Supports 4 languages:
  
     - Russian
