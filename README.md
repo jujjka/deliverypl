@@ -15,6 +15,8 @@ Supports 4 languages:
     - Franz
 
 When I have time, I will definitely add a database
+
+
 If you have any problems write me on the discord - lampy(jujja)#8056
 
 
