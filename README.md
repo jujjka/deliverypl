@@ -21,5 +21,3 @@ If you have any problems write me on the discord - lampy(jujja)#8056
 
 
 
-
-![1667281053_3-21](https://user-images.githubusercontent.com/122149055/230772771-4216df75-b036-4cea-9a1c-8897dc4e05b9.jpg)
